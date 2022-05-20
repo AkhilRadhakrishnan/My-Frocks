@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "943127057568",
+    "project_id": "myfrocks-4e8b0",
+    "storage_bucket": "myfrocks-4e8b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943127057568:android:950096fbaf333134ae25c5",
+        "android_client_info": {
+          "package_name": "com.myfrocks.myfrocks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943127057568-5uuk5hm3o3m0sdunod68bju00rdo3hu4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmBt7BXObI02iQ8ZSwykgeUNRPuqvdOWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943127057568-5uuk5hm3o3m0sdunod68bju00rdo3hu4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-1587899225953631~7912684777"
+    }
+  ],
+  "configuration_version": "1"
+}
