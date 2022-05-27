@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfrocks/helper/firebase_services.dart';
 import 'package:myfrocks/widgets/category.dart';
 
 class ScreenHome extends StatefulWidget {
@@ -10,6 +11,12 @@ class ScreenHome extends StatefulWidget {
 }
 
 class _ScreenHomeState extends State<ScreenHome> {
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseServices.initializeMessaging();
+  }
 
   @override
   Widget build(BuildContext context) {
