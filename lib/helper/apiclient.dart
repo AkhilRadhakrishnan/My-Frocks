@@ -18,7 +18,7 @@ class ApiClient extends ChangeNotifier {
       case RequestType.GET:
         print('$baseUrl/App/Admin/api/v1/$path');
         //return _client.get(Uri.http('$baseUrl', 'App/Admin/api/v1/$path'));
-        return _client.get('$baseUrl/App/Admin/api/v1/$path');
+        return _client.get(Uri.parse('$baseUrl/App/Admin/api/v1/$path'));
       default:
         return throw RequestTypeNotFoundException(
             "The HTTP request mentioned is not found");

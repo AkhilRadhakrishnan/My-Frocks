@@ -95,33 +95,23 @@ class _ScreenTipDetailsState extends State<ScreenTipDetails> {
   InterstitialAd _interstitialAd;
   bool _interstitialReady = false;
   void createInterstitialAd() {
-    _interstitialAd ??= InterstitialAd(
-      adUnitId: AdManager.interstitialAdUnitId,
-      // request: AdRequest(
-      //   testDevices: <String>['0B3A1E0EC7DB8FF05EF85F3BDF73090A'],
-      //   nonPersonalizedAds: true
-      // ),
-      listener: AdListener(
-        onAdLoaded: (Ad ad) {
-          print('${ad.runtimeType} loaded.');
+    InterstitialAd.load(
+        adUnitId: AdManager.interstitialAdUnitId,
+        request: AdRequest(),
+        adLoadCallback: InterstitialAdLoadCallback(onAdLoaded: (ad) {
           _interstitialReady = true;
+          _interstitialAd = ad;
         },
-        onAdFailedToLoad: (Ad ad, LoadAdError error) {
-          print('${ad.runtimeType} failed to load: $error.');
-          ad.dispose();
-          _interstitialAd = null;
-          createInterstitialAd();
-        },
-        onAdOpened: (Ad ad) => print('${ad.runtimeType} onAdOpened.'),
-        onAdClosed: (Ad ad) {
-          print('${ad.runtimeType} closed.');
-          ad.dispose();
-          createInterstitialAd();
-        },
-        onApplicationExit: (Ad ad) =>
-            print('${ad.runtimeType} onApplicationExit.'),
-      ),
-    )..load();
+            onAdFailedToLoad: (error){
+              _interstitialAd.dispose();
+              _interstitialAd = null;
+              createInterstitialAd();
+            }
+        ));
+    if(_interstitialReady){
+      _interstitialAd.show();
+      _interstitialAd = null;
+    }
   }
 
   @override

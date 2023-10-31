@@ -18,22 +18,20 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   @override
   void initState() {
     super.initState();
-    _ad = BannerAd(
-      adUnitId: AdManager.bannerAdUnitId,
-      size: AdSize.mediumRectangle,
-      // request: AdRequest(
-      //   testDevices: <String>['0B3A1E0EC7DB8FF05EF85F3BDF73090A'],
-      // ),
-      listener: AdListener(
-        onAdLoaded: (_) {
-          _isAdLoaded.value = true;
-        },
-        onAdFailedToLoad: (ad, error) {
-          ad.dispose();
-          print('Ad load failed (code=${error.code} message=${error.message})');
-        },
-      ),
-    );
+    // _ad = BannerAd(
+    //   adUnitId: AdManager.bannerAdUnitId,
+    //   size: AdSize.mediumRectangle,
+    //   request: AdRequest(),
+    //   listener: AdListener(
+    //     onAdLoaded: (_) {
+    //       _isAdLoaded.value = true;
+    //     },
+    //     onAdFailedToLoad: (ad, error) {
+    //       ad.dispose();
+    //       print('Ad load failed (code=${error.code} message=${error.message})');
+    //     },
+    //   ),
+    // );
     _ad.load();
     print('AD loaded');
   }
